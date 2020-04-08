@@ -8,6 +8,7 @@ const forecast = require('./utils/forecast.js');
 const geocode = require('./utils/geocode.js');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 // define paths for express config
 const staticPath = path.join(__dirname, '../public');  // need to set up an absolute path to get the static files
@@ -103,6 +104,6 @@ app.get('*', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log(chalk.inverse.yellow('listening on port 3000'));
+app.listen(port, () => {
+  console.log(chalk.inverse.yellow(`listening on port ${port}`));
 });
